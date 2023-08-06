@@ -12,7 +12,7 @@ namespace APIMusica.Services
             MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
             builder.Server = "localhost";
             builder.Database = "musica";
-            builder.Port = 3307;
+            builder.Port = 3306;
             builder.UserID = "root";
             builder.Password = "";
 
