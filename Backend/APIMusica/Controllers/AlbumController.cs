@@ -39,15 +39,14 @@ namespace APIMusica.Controllers
                 return BadRequest("Error al guardar el álbum"); // Return 400 Bad Request if there was an error.
         }
 
-        [HttpDelete("{id:int}")]
-        public IActionResult EliminarAlbum(int id)
+        [HttpDelete]
+        public List<Albumes> EliminarAlbum(int idAlbum)
         {
             var albumService = new AlbumService();
-            var success = albumService.EliminarAlbum(id);
-            if (success)
-                return Ok("Álbum eliminado con éxito");
-            else
-                return NotFound("Álbum no encontrado"); // Return 404 Not Found if the album to delete is not found.
+            var res = albumService.EliminarAlbum(idAlbum);
+
+            return new AlbumService().LeerAlbumes();
+            // Return 404 Not Found if the album to delete is not found.
         }
 
         [HttpPut("{id:int}")]
