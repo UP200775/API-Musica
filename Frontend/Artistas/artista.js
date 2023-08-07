@@ -55,30 +55,27 @@ class Artista {
 
     borrarArtista(idArtista) {
         var data = {
-            "ID_Artista": idArtista
+            "idArtista": idArtista
         };
-
-        fetch(url, {
+        fetch(url+'?idArtista='+idArtista, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json' // Correct for JSON data
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-        })
+            
+        }) 
             .then(response => {
+                
                 if (!response.ok) {
                     throw new Error(`Network response was not ok. Status: ${response.status}`);
                 }
                 else {
-                    alert("El artista se eliminó correctamente");
+                    alert("El artista se elimino correctamente")
                 }
                 return response.json();
             })
-            .then(data => {
-                this.muestraArtistas(data);
-            })
             .catch(error => {
-                // Handle errors that might occur during the fetch
                 console.error('Fetch error:', error);
             });
     }
@@ -117,7 +114,7 @@ class Artista {
 
             var btn = $("<div>");
             btn.on("click", function () {
-                borrarArtista(artista.idArtista);
+                Borrar(artista.idArtista);
             });
             var icon2 = $("<i>").addClass("fa fa-trash");
             btn.append(icon2);
@@ -139,7 +136,7 @@ function guardar() {
     _artista.guardaArtista();
 }
 
-function borrarArtista(idArtista) {
+function Borrar(idArtista) {
     var _artista = new Artista();
     _artista.borrarArtista(idArtista);
 }

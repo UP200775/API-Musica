@@ -39,15 +39,12 @@ namespace APIMusica.Controllers
                 return BadRequest("Error al guardar el artista"); // Return 400 Bad Request if there was an error.
         }
 
-        [HttpDelete("{id:int}")]
-        public IActionResult EliminarArtista(int id)
+        [HttpDelete]
+        public List<Artistas> EliminarArtista(int idArtista)
         {
             var artistaService = new ArtistaService();
-            var success = artistaService.EliminarArtista(id);
-            if (success)
-                return Ok("Artista eliminado con éxito");
-            else
-                return NotFound("Artista no encontrado"); // Return 404 Not Found if the artista to delete is not found.
+            var res = artistaService.EliminarArtista(idArtista);
+            return new ArtistaService().LeerArtistas(); // Return 404 Not Found if the artista to delete is not found.
         }
 
         [HttpPut("{id:int}")]
