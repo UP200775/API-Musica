@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open album.html",
-            "file": "c:\\xampp\\htdocs\\apiMusica\\API-Musica\\Frontend\\Albumes\\album.html"
+            "name": "Open genero.html",
+            "file": "c:\\xampp\\htdocs\\Proyecto Final Wallace\\API-Musica\\Frontend\\Generos\\genero.html"
         }
     ]
 }
