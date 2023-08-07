@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <div class="container">
+                <!-- Comentario: Eliminamos el logo del header -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Albumes/album.html">Albumes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Artistas/artista.html">Artistas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Generos/Generos.html">Generos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Canciones/Canciones.html">Canciones</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Agregamos los botones de registro e inicio de sesión dentro del header -->
+                <div class="ml-auto">
+                    <a href="../Inicio y Registro de sesion/registro.php" class="btn bg-danger text-white">Registro</a>
+                    <a href="../Inicio y Registro de sesion/formulario.php" class="btn bg-danger text-white">Iniciar sesión</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+<head>
+    <title>API Música</title>
+    <!-- Agrega la URL de los estilos de Bootstrap aquí -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container p-5">
+        <div class="album-container row" id="albumContainer">
+            <!-- Aquí se mostrarán los álbumes y sus carátulas -->
+        </div>
+    </div>
+
+    <script src="home.js"></script>
+</body>
+</html>
