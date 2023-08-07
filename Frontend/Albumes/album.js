@@ -1,6 +1,7 @@
 const url = 'https://localhost:7204/Album';
 
 class album {
+
     leeAlbumes() {
         debugger;
         fetch(url, {
@@ -10,20 +11,18 @@ class album {
                 if (!response.ok) {
                     throw new Error(`Network response was not ok. Status: ${response.status}`);
                 }
-                return response.json(); // Parse the response body as JSON
+                return response.json();
             })
             .then(data => {
                 debugger;
                 this.muestraAlbumes(data);
             })
             .catch(error => {
-                // Handle errors that might occur during the fetch
-                console.error('Valio burg:', error);
+                console.error('Valio burguer:', error);
             });
     }
 
     guardaAlbum() {
-
         var data = {
             "Nombre_Album": $("#txtAlbum").val(),
             "ID_Artista": $("#txtArtista").val(),
@@ -33,12 +32,11 @@ class album {
         fetch(url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json' // Correct for JSON data
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         })
             .then(response => {
-                debugger;
                 if (!response.ok) {
                     throw new Error(`Network response was not ok. Status: ${response.status}`);
                 }
@@ -56,20 +54,21 @@ class album {
             });
     }
 
-    borrarAlbum(iD_Album) {
+    //El paramatero "idAlbum" debe ser igual al que se llama en el service
+    borrarAlbum(idAlbum) {
         var data = {
-            "ID_Album": iD_Album
+            "idAlbum": idAlbum
         };
-
-        fetch(url, {
+        fetch(url+'?idAlbum='+idAlbum, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json' // Correct for JSON data
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-
-        })
+            
+        }) 
             .then(response => {
+                
                 if (!response.ok) {
                     throw new Error(`Network response was not ok. Status: ${response.status}`);
                 }
@@ -78,11 +77,7 @@ class album {
                 }
                 return response.json();
             })
-            .then(data => {
-                this.muestraAlbumes(data)
-            })
             .catch(error => {
-                // Handle errors that might occur during the fetch
                 console.error('Fetch error:', error);
             });
     }
